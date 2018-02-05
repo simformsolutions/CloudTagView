@@ -149,6 +149,21 @@ open class TagView: UIView {
             layoutSubviews()
         }
     }
+    // MARK:- add 1 pearameter and 1 method by simformsoltuions 
+    open var lastUsedBackground = UIColor.black
+    
+    open var selected:Bool = false {
+        didSet {
+            if selected {
+                lastUsedBackground = backgroundColor ?? UIColor.white
+                backgroundColor = UIColor(red: 128/255.0, green: 0/255.0, blue: 128/255.0, alpha: 1.0)
+                textLabel.textColor = UIColor.white
+            } else {
+                textLabel.textColor = tintColor
+                backgroundColor = lastUsedBackground
+            }
+        }
+    }
     
     fileprivate let dismissView : UIView
     fileprivate let icon : UIImageView
